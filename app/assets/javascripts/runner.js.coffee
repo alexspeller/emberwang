@@ -13,7 +13,7 @@ didReceiveMessage = (event) ->
     getScript lib.name, ->
       console.log 'loaded', lib.name
       lib.loaded = true
-      tryContinue()
+      setTimeout tryContinue, 1
 
   tryContinue = ->
     allLoaded = libraries.reduce (memo, lib) ->
