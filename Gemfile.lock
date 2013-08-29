@@ -43,19 +43,18 @@ GEM
     coffee-script-source (1.6.3)
     ember-data-source (0.13)
       ember-source
-    ember-rails (0.13.0)
+    ember-rails (0.12.0)
       active_model_serializers
       barber (>= 0.4.1)
       ember-data-source
-      ember-source
+      ember-source (>= 1.0.0.rc2.2)
       execjs (>= 1.2)
-      handlebars-source
       railties (>= 3.1)
-    ember-source (0.0.9)
-      handlebars-source (= 1.0.0.rc4)
+    ember-source (1.0.0.rc7)
+      handlebars-source (= 1.0.12)
     erubis (2.7.0)
     execjs (2.0.1)
-    handlebars-source (1.0.0.rc4)
+    handlebars-source (1.0.12)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -116,8 +115,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.3.0)
-      coffee-rails
     tzinfo (0.3.37)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
@@ -129,11 +126,11 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   ember-rails
+  handlebars-source (= 1.0.12)
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
-  turbolinks
   uglifier (>= 1.3.0)
