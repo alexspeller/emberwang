@@ -1,7 +1,5 @@
-# didReceiveMessage = (event) ->
-#   loadData event.data
-
-# loadData = (data) ->
+didReceiveMessage = (event) ->
+  eval event.data.javascript
 #   destroyApps()
 #   Ember.run ->
 #     $("#css").html(data.css)
@@ -19,7 +17,10 @@
 #           delete window[name]
 #       catch error
 #         console.log error
-#     Ember.TEMPLATES = {}
+    # Ember.TEMPLATES = {}
 
-# window.addEventListener "message", didReceiveMessage, false
-# $ -> parent.postMessage "Ready!", "*"
+window.addEventListener "message", didReceiveMessage, false
+
+document.addEventListener 'DOMContentLoaded', ->
+  console.log 'posting message'
+  window.parent.postMessage "Ready!", "*"

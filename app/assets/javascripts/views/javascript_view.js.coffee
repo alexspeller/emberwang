@@ -1,6 +1,6 @@
 EW.JavascriptView = Em.View.extend
   contentDidChange: ->
-    @set 'content', @editor.getValue()
+    @set 'controller.content', @editor.getValue()
 
   didInsertElement: ->
     @editor = ace.edit("editor");

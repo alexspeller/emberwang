@@ -4,22 +4,19 @@ EW.FrameView = Ember.View.extend
   attributeBindings: [ "src" ]
 
   contentDidChange: (->
-    return  unless @get("isReady")
-    contentWindow = @get("element").contentWindow
-    content = @get("content")
-    Ember.run ->
-      contentWindow.postMessage content, "*"
+    @set 'isReady', false
+    @get('contentWindow').location.reload()
   ).observes("content")
 
-  content: (->
-    @getProperties "js", "hbs", "css"
-  ).property("js", "hbs", "css")
+  contentWindow: (->
+    @get("element").contentWindow
+  ).property 'element'
 
-  didInsertElement: ->
-    $(window).on "message", $.proxy(this, "messageReceived")
+  willInsertElement: ->
+    window.addEventListener "message", @didReceiveMessage.bind(@)
 
-  messageReceived: (event) ->
-    if event.originalEvent.data is "Ready!"
-      @set "isReady", true
-      @notifyPropertyChange "content"
+  didReceiveMessage: (event) ->
+    if event.data is "Ready!"
+      @set 'isReady', true
+      @get('contentWindow').postMessage @get("content"), "*"
 
