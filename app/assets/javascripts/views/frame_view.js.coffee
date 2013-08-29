@@ -6,11 +6,7 @@ EW.FrameView = Ember.View.extend
   src: "/runner"
   attributeBindings: [ "src" ]
 
-  contentDidChange: (->
-    Em.run.once @, 'reloadContentWindow'
-  ).observes observeProps...
-
-  reloadContentWindow: ->
+  contentDidChange: Ember.debouncedObserver observeProps..., 500, ->
     @set 'isReady', false
     @get('contentWindow').location.reload()
 

@@ -11,6 +11,7 @@ didReceiveMessage = (event) ->
 
   libraries.forEach (lib) ->
     getScript lib.name, ->
+      console.log 'loaded', lib.name
       lib.loaded = true
       tryContinue()
 
@@ -30,7 +31,6 @@ didReceiveMessage = (event) ->
 window.addEventListener "message", didReceiveMessage, false
 
 document.addEventListener 'DOMContentLoaded', ->
-  console.log 'posting message'
   window.parent.postMessage "Ready!", "*"
 
 window.addEventListener 'hashchange', ->

@@ -3,9 +3,8 @@ observeProps = ['javascript', 'templates.@each.name', 'templates.@each.body']
 EW.WangController = Em.ObjectController.extend
   serialize: -> @get('model').serialize()
 
-  contentDidChange: (->
-    Em.run.once @, 'save'
-  ).observes observeProps...
+  contentDidChange: Ember.debouncedObserver observeProps..., 500, ->
+    @save()
 
   save: ->
     @get('model').save()

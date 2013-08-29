@@ -34,6 +34,12 @@ GEM
       execjs
       handlebars-source
     builder (3.1.4)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -56,6 +62,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.1)
     handlebars-source (1.0.12)
+    highline (1.6.19)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -72,6 +79,13 @@ GEM
     mime-types (1.24)
     minitest (4.7.5)
     multi_json (1.7.9)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.8)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     pg (0.16.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -89,11 +103,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
-    rails_12factor (0.0.2)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.1)
-    rails_stdout_logging (0.0.1)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -136,6 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano
   coffee-rails (~> 4.0.0)
   ember-rails
   handlebars-source (= 1.0.12)
@@ -144,7 +154,6 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.0.0)
-  rails_12factor
   sass-rails (~> 4.0.0)
   sdoc
   uglifier (>= 1.3.0)
