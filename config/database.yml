@@ -8,6 +8,5 @@ development:
 production:
   adapter: postgresql
   database: emberwang_production
-  user: root
   pool: 5
   timeout: 5000
