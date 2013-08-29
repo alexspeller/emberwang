@@ -4,5 +4,12 @@ EW.ResultController = Em.Controller.extend
 
   content: (->
     javascript: @get('javascript')
+    libraries: [
+      name: 'jquery'
+    ,
+      name: 'handlebars'
+    ,
+      name: 'ember'
+    ]
   ).property 'javascript'
 
