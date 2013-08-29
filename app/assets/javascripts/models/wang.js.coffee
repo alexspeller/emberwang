@@ -23,3 +23,16 @@ Emberwang.Wang = Em.Object.extend
     ]
     templates: @get('templates').map (template) ->
       template.getProperties('name', 'body')
+
+EW.Wang.reopenClass
+  new: ->
+    $.getJSON('/wangs/new').then (data) =>
+      console.log 'got new wang', data.wang.token
+      return EW.Wang.create data.wang
+
+  find: (token) ->
+    console.log "loading wang", token
+    $.getJSON("/wangs/#{token}").then (data) =>
+      console.log 'loaded wang', data.wang.token
+      return EW.Wang.create data.wang
+
