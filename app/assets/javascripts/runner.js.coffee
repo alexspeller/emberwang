@@ -32,3 +32,6 @@ window.addEventListener "message", didReceiveMessage, false
 document.addEventListener 'DOMContentLoaded', ->
   console.log 'posting message'
   window.parent.postMessage "Ready!", "*"
+
+window.addEventListener 'hashchange', ->
+  window.parent.postMessage {href: window.location.hash}, "*"

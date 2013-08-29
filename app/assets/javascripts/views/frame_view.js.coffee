@@ -25,4 +25,6 @@ EW.FrameView = Ember.View.extend
     if event.data is "Ready!"
       @set 'isReady', true
       @get('contentWindow').postMessage @get("content").serialize(), "*"
+    if event.data.href
+      @set 'hash', event.data.href
 
