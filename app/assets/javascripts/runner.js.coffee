@@ -9,24 +9,19 @@ didReceiveMessage = (event) ->
   console.log "Message received", event.data
   libraries = event.data.libraries
 
-  libraries.forEach (lib) ->
-    getScript lib.name, ->
-      console.log 'loaded', lib.name
-      lib.loaded = true
-      setTimeout tryContinue, 1
+  loadLibs = ->
+    library = libraries.shift()
+    if library?
+      getScript library.name, ->
+        console.log 'loaded', library.name
+        loadLibs()
+    else
+      event.data.templates.forEach (template) ->
+        Ember.TEMPLATES[template.name] = Ember.Handlebars.compile template.body
 
-  tryContinue = ->
-    allLoaded = libraries.reduce (memo, lib) ->
-      return false unless memo and lib.loaded
-      true
-    , true
+      eval event.data.javascript
 
-    return unless allLoaded
-
-    event.data.templates.forEach (template) ->
-      Ember.TEMPLATES[template.name] = Ember.Handlebars.compile template.body
-
-    eval event.data.javascript
+  loadLibs()
 
 window.addEventListener "message", didReceiveMessage, false
 
