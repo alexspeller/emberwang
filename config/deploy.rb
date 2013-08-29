@@ -8,7 +8,7 @@ set :repository,  "https://github.com/alexspeller/emberwang"
 set :deploy_strategy, :remote_cache
 set :use_sudo, false
 set :deploy_to, "/home/emberwang/railsapp"
-
+set :git_enable_submodules, true
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
