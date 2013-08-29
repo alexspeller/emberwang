@@ -29,6 +29,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
+group :assets do
+  gem 'therubyracer'
+end
+
 group :development do
   gem 'capistrano'
   gem 'pry'

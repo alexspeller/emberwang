@@ -1,8 +1,13 @@
 require 'bundler/capistrano'
+load 'deploy/assets'
+
 
 set :application, "emberwang"
 set :user, "emberwang"
 set :repository,  "https://github.com/alexspeller/emberwang"
+set :deploy_strategy, :remote_cache
+set :use_sudo, false
+set :deploy_to, "/home/emberwang/railsapp"
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -10,6 +15,10 @@ set :repository,  "https://github.com/alexspeller/emberwang"
 role :web, "emberwang.alexspeller.com"                          # Your HTTP server, Apache/etc
 role :app, "emberwang.alexspeller.com"                          # This may be the same as your `Web` server
 role :db,  "emberwang.alexspeller.com", :primary => true # This is where Rails migrations will run
+
+set :default_environment, {
+  'PATH' => "/home/emberwang/.rbenv/shims:/home/youruser/.rbenv/bin:$PATH"
+}
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
