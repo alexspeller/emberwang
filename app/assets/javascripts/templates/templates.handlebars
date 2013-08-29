@@ -1,8 +1,14 @@
 <h2>Templates</h2>
 <section class="templates">
   {{#each}}
-    * template
+    <div>
+      {{input value=name autofocus=true}}.handlebars
+      {{ace-editor content=body}}
+      <button {{action removeTemplate this}}>Remove</button>
+    </div>
   {{else}}
     No Templates
   {{/each}}
 </section>
+
+<button {{action addTemplate}}>Add Template</button>

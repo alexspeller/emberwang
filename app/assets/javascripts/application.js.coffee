@@ -14,6 +14,7 @@
 #= require src/ace.js
 #= require handlebars
 #= require ember
+#= require hacks
 #= require ember-data
 #= require_self
 #= require emberwang
