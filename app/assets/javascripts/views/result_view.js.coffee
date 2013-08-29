@@ -1,1 +1,2 @@
-EW.ResultView = Em.View.extend()
+EW.ResultView = Em.View.extend
+  classNames: ['column result']

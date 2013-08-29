@@ -1,12 +1,18 @@
+observeProps = EW.WangController.wangProperties.map (prop) ->
+  "content.#{prop}"
+
 EW.FrameView = Ember.View.extend
   tagName: "iframe"
   src: "/runner"
   attributeBindings: [ "src" ]
 
   contentDidChange: (->
+    Em.run.once @, 'reloadContentWindow'
+  ).observes observeProps...
+
+  reloadContentWindow: ->
     @set 'isReady', false
     @get('contentWindow').location.reload()
-  ).observes("content")
 
   contentWindow: (->
     @get("element").contentWindow
@@ -18,5 +24,5 @@ EW.FrameView = Ember.View.extend
   didReceiveMessage: (event) ->
     if event.data is "Ready!"
       @set 'isReady', true
-      @get('contentWindow').postMessage @get("content"), "*"
+      @get('contentWindow').postMessage @get("content").serialize(), "*"
 

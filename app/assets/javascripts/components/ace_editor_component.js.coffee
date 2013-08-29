@@ -1,11 +1,13 @@
 EW.AceEditorComponent = Em.Component.extend
-  contentDidChange: ->
-    @set 'content', @editor.getValue()
+  updateContent: ->
+    @editor.setValue @get('content')
 
   didInsertElement: ->
     @editor = ace.edit(@get('element'))
-    @editor.getSession().setMode("ace/mode/javascript")
-    @editor.on 'change', @contentDidChange.bind(@)
+    @editor.getSession().setMode("ace/mode/#{@get 'language'}")
+    @editor.on 'change', =>
+      @set 'content', @editor.getValue()
+    @updateContent()
 
   willRemoveElement: ->
     @editor.destroy()

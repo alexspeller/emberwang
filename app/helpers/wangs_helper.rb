@@ -1,0 +1,2 @@
+module WangsHelper
+end

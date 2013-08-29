@@ -1,4 +1,6 @@
 Emberwang::Application.routes.draw do
+  resources :wangs
+
   root to: "app#index"
 
   get '/runner' => 'app#runner'

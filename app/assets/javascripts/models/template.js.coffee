@@ -1,1 +1,2 @@
-EW.Template = Em.Object.extend()
+EW.Template = Em.Object.extend
+  language: 'handlebars'

@@ -1,1 +1,2 @@
-EW.JavascriptView = Em.View.extend()
+EW.JavascriptView = Em.View.extend
+  classNames: 'column'.w()

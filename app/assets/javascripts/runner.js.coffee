@@ -6,6 +6,7 @@ getScript = (script, callback) ->
   el.onload = callback
 
 didReceiveMessage = (event) ->
+  console.log "Message received", event.data
   libraries = event.data.libraries
 
   libraries.forEach (lib) ->
