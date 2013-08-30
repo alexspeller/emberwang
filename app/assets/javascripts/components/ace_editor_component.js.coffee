@@ -3,6 +3,7 @@ EW.AceEditorComponent = Em.Component.extend
     @editor.setValue @get('content')
 
   didInsertElement: ->
+    ace.config.set "workerPath", "/assets/src"
     @editor = ace.edit(@get('element'))
     @editor.setTheme('ace/theme/tomorrow_night_eighties');
     @setLanguage()
