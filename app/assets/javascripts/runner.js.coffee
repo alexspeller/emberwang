@@ -17,7 +17,8 @@ didReceiveMessage = (event) ->
         loadLibs()
     else
       event.data.templates.forEach (template) ->
-        Ember.TEMPLATES[template.name] = Ember.Handlebars.compile template.body
+        if template.name and template.body
+          Ember.TEMPLATES[template.name] = Ember.Handlebars.compile template.body
 
       eval event.data.javascript
 

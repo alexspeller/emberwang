@@ -1,3 +1,9 @@
+{{#if user}}
+  <button {{action personaLogout}}>Logout {{user}}</button>
+{{else}}
+  <button {{action personaLogin}}>Login With Email</button>
+{{/if}}
+
 <h1>
   <%= ActionController::Base.helpers.image_tag 'tomster.png' %>
   Wang

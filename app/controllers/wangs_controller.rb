@@ -3,7 +3,11 @@ class WangsController < ApplicationController
   respond_to :json
 
   def new
-    respond_with Wang.factory
+    wang = Wang.factory
+    if session[:email].present?
+      wang.email = session[:email]
+    end
+    respond_with wang
   end
 
   def show
@@ -15,6 +19,9 @@ class WangsController < ApplicationController
     json = JSON.parse(request.body.read)
     wang.javascript = json['javascript']
     wang.templates = json['templates'].to_json
+    if wang.new_record? && session[:email].present?
+      wang.email = session[:email]
+    end
     wang.save!
     head :ok
   end
