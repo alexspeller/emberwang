@@ -35,7 +35,7 @@ group :development do
 end
 
 group :production do
-  gem 'sprockets-redirect'
+  gem 'sprockets-redirect', git: 'https://github.com/Intrepidd/sprockets-redirect'
 end
 
 # Use ActiveModel has_secure_password
