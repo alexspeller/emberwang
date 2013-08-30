@@ -18,4 +18,8 @@ class Wang < ActiveRecord::Base
     read_attribute(:javascript) || "App = Ember.Application.create();"
   end
 
+  def script_language
+    read_attribute(:script_language) || "javascript"
+  end
+
 end

@@ -11,7 +11,9 @@
 # about supported directives.
 #
 #= require jquery
-#= require src/ace.js
+#= require src/ace
+#= require src/mode-html
+#= require src/theme-tomorrow_night_eighties
 #= require handlebars
 #= require ember
 #= require hacks

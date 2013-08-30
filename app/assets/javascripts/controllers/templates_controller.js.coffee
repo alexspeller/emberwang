@@ -1,9 +1,10 @@
 EW.TemplatesController = Em.Controller.extend
   needs:        ['wang']
-  language:     "handlebars"
   init: ->
     @_super()
     @set 'content', @get('controllers.wang.templates')
+    @get('content').forEach (template) ->
+      template.language ||= 'handlebars'
 
   actions:
     addTemplate: ->

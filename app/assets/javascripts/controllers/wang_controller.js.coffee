@@ -1,4 +1,4 @@
-observeProps = ['javascript', 'templates.@each.name', 'templates.@each.body']
+observeProps = ['javascript', 'templates.@each.name', 'templates.@each.body', 'script_language']
 
 EW.WangController = Em.ObjectController.extend
   needs: ['application']
