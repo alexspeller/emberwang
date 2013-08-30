@@ -3,4 +3,4 @@ EW.JavascriptController = Em.Controller.extend
   content: Em.computed.alias('controllers.wang.javascript')
 
   language: Em.computed.alias('controllers.wang.script_language')
-  languages:  'javascript coffeescript emberscript'.w()
+  languages:  'javascript coffee'.w()

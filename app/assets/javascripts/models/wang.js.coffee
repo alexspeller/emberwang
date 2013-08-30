@@ -12,8 +12,19 @@ Emberwang.Wang = Em.Object.extend
       dataType: 'application/json'
     )
 
+  compile: ->
+    switch @get 'script_language'
+      when 'javascript' then @get 'content'
+      when 'coffee'
+        try
+          CoffeeScript.compile this.get('javascript')
+        catch e
+          console.warn "Coffeescript failed to compile", e
+
+
   serialize: ->
     javascript: @get('javascript')
+    script_language: @get('script_language')
     libraries: [
       name: 'jquery'
     ,

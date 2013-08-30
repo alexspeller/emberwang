@@ -18,6 +18,7 @@ class WangsController < ApplicationController
     wang = Wang.find_or_initialize_by_token(params[:id])
     json = JSON.parse(request.body.read)
     wang.javascript = json['javascript']
+    wang.script_language = json['script_language']
     wang.templates = json['templates'].to_json
     if wang.new_record? && session[:email].present?
       wang.email = session[:email]

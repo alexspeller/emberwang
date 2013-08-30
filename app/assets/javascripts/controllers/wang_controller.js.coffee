@@ -4,6 +4,7 @@ EW.WangController = Em.ObjectController.extend
   needs: ['application']
   user: Em.computed.alias('application.user')
   serialize: -> @get('model').serialize()
+  compile: -> @get('model').compile()
 
   contentDidChange: Ember.debouncedObserver observeProps..., 500, ->
     @save()
