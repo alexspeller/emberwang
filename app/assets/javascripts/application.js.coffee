@@ -13,6 +13,7 @@
 #= require jquery
 #= require src/ace
 #= require src/mode-html
+#= require src/mode-handlebars
 #= require src/theme-tomorrow_night_eighties
 #= require handlebars
 #= require ember
