@@ -14,7 +14,7 @@ Emberwang.Wang = Em.Object.extend
 
   compile: ->
     switch @get 'script_language'
-      when 'javascript' then @get 'content'
+      when 'javascript' then @get 'javascript'
       when 'coffee'
         try
           CoffeeScript.compile this.get('javascript')
